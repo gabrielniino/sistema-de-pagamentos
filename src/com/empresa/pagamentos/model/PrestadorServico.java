@@ -1,5 +1,7 @@
 package com.empresa.pagamentos.model;
 
+import com.empresa.pagamentos.util.PagamentoException;
+
 public class PrestadorServico extends Pessoa {
 
     private double valorHora;
@@ -16,6 +18,9 @@ public class PrestadorServico extends Pessoa {
     }
 
     public void setValorHora(double valorHora) {
+        if (valorHora < 0) {
+            throw new PagamentoException("Valor da hora deve ser maior ou igual a zero.");
+        }
         this.valorHora = valorHora;
     }
 
@@ -24,11 +29,17 @@ public class PrestadorServico extends Pessoa {
     }
 
     public void setHorasTrabalhadas(int horasTrabalhadas) {
+        if (horasTrabalhadas < 0) {
+            throw new PagamentoException("Horas trabalhadas devem ser maiores ou iguais a zero.");
+        }
         this.horasTrabalhadas = horasTrabalhadas;
     }
 
     @Override
     public double calcularPagamento() {
+        if (valorHora < 0 || horasTrabalhadas < 0) {
+            throw new PagamentoException("Valor da hora e horas trabalhadas devem ser não-negativos.");
+        }
         return valorHora * horasTrabalhadas;
     }
 
