@@ -31,7 +31,7 @@ src/
     └── empresas/
         └── pagamentos/
             ├── app/
-            │   └── Main.java
+            │   └── App.java
             ├── model/
             │   ├── Pessoa.java
             │   ├── Funcionario.java
@@ -74,8 +74,8 @@ src/
 
 2. Compile e execute o arquivo `Main.java` com sua IDE favorita (Eclipse, IntelliJ, VSCode) ou via terminal:
    ```bash
-   javac src/com/empresas/pagamentos/app/Main.java
-   java com.empresas.pagamentos.app.Main
+   javac src/com/empresas/pagamentos/app/App.java
+   java com.empresas.pagamentos.app.App
    ```
 
 ---
